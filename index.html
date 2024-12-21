@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перенаправление...</title>
+    <script>
+        function redirect() {
+            var userAgent = navigator.userAgent + navigator.vendor + window.opera;
+
+            try {
+                if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                    // Ссылка для iPhone, для прямого скачивания .vcf файла
+                    window.location.href = "https://drive.google.com/uc?export=download&id=11u_k6rbZM0OIMWyhKxjGUK38unWC14Wo";
+                } else if (/Android/i.test(userAgent)) {
+                    // Ссылка для Android, для прямого скачивания .vcf файла
+                    window.location.href = "https://drive.google.com/uc?export=download&id=1K8W7DbT7Y7Fc-7NRJ5kYqc-a47Rc0txa";
+                } else {
+                    // Ссылка по умолчанию для других устройств
+                    window.location.href = "https://drive.google.com/uc?export=download&id=11u_k6rbZM0OIMWyhKxjGUK38unWC14Wo";
+                }
+            } catch (error) {
+                console.error("Ошибка перенаправления:", error);
+                document.body.innerHTML = '<p>Перенаправление не удалось. <a href="https://drive.google.com/uc?export=download&id=1WE03JfMt23VG6qCSaNYNW7NbhOUrD5qT">Нажмите здесь</a> для загрузки.</p>';
+            }
+        }
+    </script>
+</head>
+<body onload="redirect()">
+    <noscript>
+        <p>Для перенаправления требуется включить JavaScript. <a href="https://drive.google.com/uc?export=download&id=1WE03JfMt23VG6qCSaNYNW7NbhOUrD5qT">Нажмите здесь</a> для загрузки.</p>
+    </noscript>
+</body>
+</html>
